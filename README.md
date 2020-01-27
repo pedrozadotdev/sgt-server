@@ -34,7 +34,7 @@ Parse Server with Parse Dashboard for SGT/DTI-UFCG.
 
 **Environment Variables**
 
-- *APP_ID*: App's Name/ID (Default: 'SGI');
+- *APP_ID*: App's Name/ID (Default: 'SGT');
 - *MASTER_KEY*: Masterkey to bypass authentication/authorization (Default: 'defaultMasterKey');
 - *DATABASE_URI*: MongoDB URI (Default: 'mongodb://db:27017/\[APP_ID\]');
 - *DASHBOARD_USERNAME*: Username to access Parse Dashboard (Default: 'admin');
