@@ -1,0 +1,27 @@
+node_modules
+npm-debug.log
+*.md
+PATENTS
+LICENSE
+Dockerfile
+docker-compose*
+.dockerignore
+.gitignore
+.git
+.github
+.env*
+.eslintrc.json
+.jest-mongodb-config.js
+.jest.config.js
+nodemon.json
+prettier.config.js
+yarn-error.log
+
+# Dist folder
+dist/
+
+# Tests
+spec/
+
+# IDEs
+.idea/

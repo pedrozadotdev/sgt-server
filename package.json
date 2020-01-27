@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/server.ts",
     "test": "jest",
-    "prod": "tsc"
+    "build": "tsc"
   },
   "engines": {
     "node": ">=12.3.1"

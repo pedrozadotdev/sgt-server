@@ -4,9 +4,10 @@ import express, { Application } from 'express';
 import { ParseServer } from 'parse-server';
 import ParseDashboard from 'parse-dashboard';
 
-const [appId, masterKey] = [
+const [appId, masterKey, serverURL] = [
   process.env.APP_ID || 'SGT',
   process.env.MASTER_KEY || 'defaultMasterKey',
+  `http://localhost:${process.env.PORT || 1337}/api`,
 ];
 
 const [app, api, dashboard] = [
@@ -16,25 +17,33 @@ const [app, api, dashboard] = [
     cloud: path.join(__dirname, 'cloud', 'main.js'),
     appId,
     masterKey,
+    serverURL,
     liveQuery: {
       classNames: ['Routes'],
     },
   }),
-  new ParseDashboard({
-    apps: [
-      {
-        serverURL: 'http://localhost:1337/api',
-        appId,
-        masterKey,
-      },
-    ],
-    users: [
-      {
-        user: process.env.DASHBOARD_USERNAME || 'admin',
-        pass: process.env.DASHBOARD_PASSWORD || 'pass',
-      },
-    ],
-  }),
+  new ParseDashboard(
+    {
+      apps: [
+        {
+          serverURL,
+          appId,
+          appName: appId,
+          masterKey,
+          supportedPushLocales: ['en', 'pt'],
+        },
+      ],
+      users: [
+        {
+          user: process.env.DASHBOARD_USERNAME || 'admin',
+          pass: process.env.DASHBOARD_PASSWORD || 'pass',
+        },
+      ],
+    },
+    {
+      allowInsecureHTTP: true,
+    },
+  ),
 ];
 
 app.use('/api', api as Application);

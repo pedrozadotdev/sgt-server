@@ -6,6 +6,7 @@ declare module 'parse-server' {
 
   interface Config {
     databaseURI: string;
+    serverURL: string;
     cloud: string;
     appId: string;
     masterKey: string;
@@ -22,7 +23,9 @@ declare module 'parse-dashboard' {
   interface App {
     serverURL: string;
     appId: string;
+    appName?: string;
     masterKey: string;
+    supportedPushLocales: string[];
   }
 
   interface User {
@@ -36,7 +39,11 @@ declare module 'parse-dashboard' {
     useEncryptedPasswords?: boolean;
   }
 
-  export default class ParseServer {
-    constructor(config: Config)
+  interface SecurityConfig {
+    allowInsecureHTTP: boolean
+  }
+
+  export default class ParseDashboard {
+    constructor(config: Config, securityConfig: SecurityConfig)
   }
 }
