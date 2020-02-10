@@ -6421,7 +6421,7 @@ parse@2.10.0:
     ws "7.2.0"
     xmlhttprequest "1.8.0"
 
-parse@2.11.0:
+parse@2.11.0, parse@^2.11.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/parse/-/parse-2.11.0.tgz#aebef56aa3ebe4636ffd05f8a5979c13b4fc5c5d"
   integrity sha512-dbGdA5M1ylky4T/b5pOXeYhsHwzATz/JbweCiBtdJLsnb8SylSSgA7V0U96RtXBI1Hfzp5uFZpqmnUKr5t69NA==

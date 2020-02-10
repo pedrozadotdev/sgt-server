@@ -15,9 +15,10 @@
     "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": true,
-    "paths": {
-      "@cloud/*": ["cloud/*"],
-    }
+    "typeRoots": [
+      "node_modules/@types",
+      "src/@types"
+    ]
   },
   "include": ["src", "__tests__"]
 }

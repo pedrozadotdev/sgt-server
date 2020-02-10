@@ -4,6 +4,8 @@ import express, { Application } from 'express';
 import { ParseServer } from 'parse-server';
 import ParseDashboard from 'parse-dashboard';
 
+import initClasses from './classes/init';
+
 const [appId, masterKey, serverURL] = [
   process.env.APP_ID || 'SGT',
   process.env.MASTER_KEY || 'defaultMasterKey',
@@ -49,7 +51,7 @@ const [app, api, dashboard] = [
 app.use('/api', api as Application);
 app.use('/dashboard', dashboard as Application);
 
-const appServer = http.createServer(app);
+export const App = http.createServer(app);
+export const InitClasses = () => initClasses({ appId, serverURL, masterKey });
 
-ParseServer.createLiveQueryServer(appServer);
-export default appServer;
+ParseServer.createLiveQueryServer(App);

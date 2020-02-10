@@ -1,3 +1,3 @@
-import app from './app';
+import { App, InitClasses } from './app';
 
-app.listen(process.env.PORT || 1337);
+App.listen(process.env.PORT || 1337, InitClasses);
