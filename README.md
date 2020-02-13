@@ -39,3 +39,9 @@ Parse Server with Parse Dashboard for SGT/DTI-UFCG.
 - *DATABASE_URI*: MongoDB URI (Default: 'mongodb://db:27017/\[APP_ID\]');
 - *DASHBOARD_USERNAME*: Username to access Parse Dashboard (Default: 'admin');
 - *DASHBOARD_PASSWORD*: Password to access Parse Dashboard (Default: 'pass');
+- *PORT*: Server port (Default: 1337);
+- *S3_ACCESS_KEY*: AWS S3 access key;
+- *S3_SECRET_KEY*: AWS S3 secret key;
+- *S3_BUCKET*: AWS S3 bucket name (Default: 'sgt');
+- *S3_ENDPOINT*: S3 custom endpoint;
+- *REDIS_URL*: Redis url (Default: 'redis://redis');

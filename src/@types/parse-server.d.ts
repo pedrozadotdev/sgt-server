@@ -1,6 +1,5 @@
 declare module 'parse-server' {
   import http from 'http';
-  import { Endpoint } from 'aws-sdk';
 
   interface LiveQueryConfig {
     classNames: string[];
