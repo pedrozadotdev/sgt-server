@@ -1,57 +1,48 @@
-import { ClassInfo, SchemaField } from '.';
-
-interface Sector {
-  acronym: SchemaField;
-  name: SchemaField;
-  titularDriver: SchemaField;
-  alternateDriver: SchemaField;
-}
-
 export default {
   name: 'Sector',
   schema: {
     acronym: {
       type: 'String',
-      required: true
+      required: true,
     },
     name: {
       type: 'String',
-      required: true
+      required: true,
     },
     titularDriver: {
       type: 'Pointer',
       targetClass: '_User',
-      required: false
+      required: false,
     },
     alternateDriver: {
       type: 'Pointer',
       targetClass: '_User',
-      required: false
-    }
+      required: false,
+    },
   },
   permissions: {
     find: {
       'role:admin': true,
-      'role:driver': true
+      'role:driver': true,
     },
     count: {
       'role:admin': true,
-      'role:driver': true
+      'role:driver': true,
     },
     get: {
       'role:admin': true,
-      'role:driver': true
+      'role:driver': true,
     },
     create: {
-      'role:admin': true
+      'role:admin': true,
     },
     update: {
-      'role:admin': true
+      'role:admin': true,
     },
     delete: {
-      'role:admin': true
+      'role:admin': true,
     },
     addField: {},
-    protectedFields: {}
-  }
+    protectedFields: {},
+  },
 } as ClassInfo<Sector>;

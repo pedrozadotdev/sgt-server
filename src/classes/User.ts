@@ -1,32 +1,28 @@
-import { ClassInfo } from '.';
-
-interface User {}
-
 export default {
   name: '_User',
   permissions: {
     find: {
       'role:admin': true,
-      'role:driver': true
+      'role:driver': true,
     },
     count: {
       'role:admin': true,
-      'role:driver': true
+      'role:driver': true,
     },
     get: {
       'role:admin': true,
-      'role:driver': true
+      'role:driver': true,
     },
     create: {
-      'role:admin': true
+      'role:admin': true,
     },
     update: {
-      'role:admin': true
+      'role:admin': true,
     },
     delete: {
-      'role:admin': true
+      'role:admin': true,
     },
     addField: {},
-    protectedFields: {}
-  }
-} as ClassInfo<User>;
+    protectedFields: {},
+  },
+} as ClassInfo<undefined>;

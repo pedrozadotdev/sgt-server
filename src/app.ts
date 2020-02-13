@@ -6,6 +6,8 @@ import ParseDashboard from 'parse-dashboard';
 
 import initClasses from './classes/init';
 
+import { filesAdapter, cacheAdapter } from './adapters';
+
 const [appId, masterKey, serverURL] = [
   process.env.APP_ID || 'SGT',
   process.env.MASTER_KEY || 'defaultMasterKey',
@@ -23,6 +25,10 @@ const [app, api, dashboard] = [
     liveQuery: {
       classNames: ['Routes'],
     },
+    allowClientClassCreation: false,
+    enableAnonymousUsers: false,
+    filesAdapter,
+    cacheAdapter,
   }),
   new ParseDashboard(
     {
@@ -52,6 +58,7 @@ app.use('/api', api as Application);
 app.use('/dashboard', dashboard as Application);
 
 export const App = http.createServer(app);
-export const InitClasses = () => initClasses({ appId, serverURL, masterKey });
+export const InitClasses = async (): Promise<void> =>
+  initClasses({ appId, serverURL, masterKey });
 
 ParseServer.createLiveQueryServer(App);

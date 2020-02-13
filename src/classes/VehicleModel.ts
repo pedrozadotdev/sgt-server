@@ -1,43 +1,36 @@
-import { ClassInfo, SchemaField } from '.';
-
-interface VehicleModel {
-  name: SchemaField;
-  brand: SchemaField;
-}
-
 export default {
   name: 'VehicleModel',
   schema: {
     name: {
       type: 'String',
-      required: true
+      required: true,
     },
     brand: {
       type: 'Pointer',
       targetClass: 'VehicleBrand',
-      required: true
-    }
+      required: true,
+    },
   },
   permissions: {
     find: {
-      'role:admin': true
+      'role:admin': true,
     },
     count: {
-      'role:admin': true
+      'role:admin': true,
     },
     get: {
-      'role:admin': true
+      'role:admin': true,
     },
     create: {
-      'role:admin': true
+      'role:admin': true,
     },
     update: {
-      'role:admin': true
+      'role:admin': true,
     },
     delete: {
-      'role:admin': true
+      'role:admin': true,
     },
     addField: {},
-    protectedFields: {}
-  }
+    protectedFields: {},
+  },
 } as ClassInfo<VehicleModel>;

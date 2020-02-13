@@ -1,48 +1,40 @@
-import { ClassInfo, SchemaField } from '.';
-
-interface Destination {
-  city: SchemaField;
-  state: SchemaField;
-  stateAcronym: SchemaField;
-}
-
 export default {
   name: 'Destination',
   schema: {
     city: {
       type: 'String',
-      required: true
+      required: true,
     },
     state: {
       type: 'String',
-      required: true
+      required: true,
     },
     stateAcronym: {
       type: 'String',
-      required: true
+      required: true,
     },
   },
   permissions: {
     find: {
-      'role:admin': true
+      'role:admin': true,
     },
     count: {
-      'role:admin': true
+      'role:admin': true,
     },
     get: {
       'role:admin': true,
-      'role:driver': true
+      'role:driver': true,
     },
     create: {
-      'role:admin': true
+      'role:admin': true,
     },
     update: {
-      'role:admin': true
+      'role:admin': true,
     },
     delete: {
-      'role:admin': true
+      'role:admin': true,
     },
     addField: {},
-    protectedFields: {}
-  }
+    protectedFields: {},
+  },
 } as ClassInfo<Destination>;

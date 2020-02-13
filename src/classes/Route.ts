@@ -1,93 +1,78 @@
-import { ClassInfo, SchemaField } from '.';
-
-interface Route {
-  date: SchemaField;
-  isReturnTrip: SchemaField;
-  proof: SchemaField;
-  reason: SchemaField;
-  destination: SchemaField;
-  returnTrip: SchemaField;
-  Route: SchemaField;
-  sector: SchemaField;
-  sponsor: SchemaField;
-  driver: SchemaField;
-}
-
 export default {
   name: 'Route',
   schema: {
     date: {
       type: 'Date',
-      required: true
+      required: true,
     },
     isReturnTrip: {
       type: 'Boolean',
       required: false,
-      defaultValue: false
+      defaultValue: false,
     },
     proof: {
       type: 'File',
-      required: false
+      required: false,
     },
     reason: {
       type: 'String',
-      required: true
+      required: true,
     },
     destination: {
       type: 'Pointer',
       targetClass: 'Destination',
-      required: true
+      required: true,
     },
     returnTrip: {
       type: 'Pointer',
       targetClass: 'Route',
-      required: false
+      required: false,
     },
     Route: {
       type: 'Pointer',
       targetClass: 'Route',
-      required: true
+      required: true,
     },
     sector: {
       type: 'Pointer',
       targetClass: 'Sector',
-      required: true
+      required: true,
     },
     sponsor: {
       type: 'Pointer',
       targetClass: 'Sponsor',
-      required: false
+      required: false,
     },
     driver: {
       type: 'Pointer',
       targetClass: '_User',
-      required: true
-    }
+      required: true,
+    },
   },
   permissions: {
     find: {
       'role:admin': true,
-      'role:driver': true
+      'role:driver': true,
     },
     count: {
       'role:admin': true,
-      'role:driver': true
+      'role:driver': true,
     },
     get: {
       'role:admin': true,
-      'role:driver': true
+      'role:driver': true,
     },
     create: {
-      'role:admin': true
+      'role:admin': true,
     },
     update: {
-      'role:admin': true
+      'role:admin': true,
     },
     delete: {
-      'role:admin': true
+      'role:admin': true,
     },
     addField: {},
     protectedFields: {},
-    readUserFields: ['driver']
-  }
+    readUserFields: ['driver'],
+  },
 } as ClassInfo<Route>;

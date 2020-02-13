@@ -1,7 +1,3 @@
-import { ClassInfo } from '.';
-
-interface Role {}
-
 export default {
   name: '_Role',
   permissions: {
@@ -12,6 +8,6 @@ export default {
     update: {},
     delete: {},
     addField: {},
-    protectedFields: {}
-  }
-} as ClassInfo<Role>;
+    protectedFields: {},
+  },
+} as ClassInfo<undefined>;

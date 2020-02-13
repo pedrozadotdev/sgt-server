@@ -19,10 +19,10 @@ declare module 'parse-dashboard' {
   }
 
   interface SecurityConfig {
-    allowInsecureHTTP: boolean
+    allowInsecureHTTP: boolean;
   }
 
   export default class ParseDashboard {
-    constructor(config: Config, securityConfig: SecurityConfig)
+    constructor(config: Config, securityConfig: SecurityConfig);
   }
 }

@@ -1,43 +1,36 @@
-import { ClassInfo, SchemaField } from '.';
-
-interface Sponsor {
-  name: SchemaField;
-  siape: SchemaField;
-}
-
 export default {
   name: 'Sponsor',
   schema: {
     name: {
       type: 'String',
-      required: true
+      required: true,
     },
     siape: {
       type: 'String',
-      required: true
-    }
+      required: true,
+    },
   },
   permissions: {
     find: {
-      'role:admin': true
+      'role:admin': true,
     },
     count: {
-      'role:admin': true
+      'role:admin': true,
     },
     get: {
       'role:admin': true,
-      'role:driver': true
+      'role:driver': true,
     },
     create: {
-      'role:admin': true
+      'role:admin': true,
     },
     update: {
-      'role:admin': true
+      'role:admin': true,
     },
     delete: {
-      'role:admin': true
+      'role:admin': true,
     },
     addField: {},
-    protectedFields: {}
-  }
+    protectedFields: {},
+  },
 } as ClassInfo<Sponsor>;

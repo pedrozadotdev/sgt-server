@@ -1,62 +1,52 @@
-import { ClassInfo, SchemaField } from '.';
-
-interface Vehicle {
-  licensePlate: SchemaField;
-  titularDriver: SchemaField;
-  alternateDriver: SchemaField;
-  model: SchemaField;
-  brand: SchemaField;
-}
-
 export default {
   name: 'Vehicle',
   schema: {
     licensePlate: {
       type: 'String',
-      required: true
+      required: true,
     },
     titularDriver: {
       type: 'Pointer',
       targetClass: '_User',
-      required: false
+      required: false,
     },
     alternateDriver: {
       type: 'Pointer',
       targetClass: '_User',
-      required: false
+      required: false,
     },
     model: {
       type: 'String',
-      required: true
+      required: true,
     },
     brand: {
       type: 'String',
-      required: true
-    }
+      required: true,
+    },
   },
   permissions: {
     find: {
       'role:admin': true,
-      'role:driver': true
+      'role:driver': true,
     },
     count: {
       'role:admin': true,
-      'role:driver': true
+      'role:driver': true,
     },
     get: {
       'role:admin': true,
-      'role:driver': true
+      'role:driver': true,
     },
     create: {
-      'role:admin': true
+      'role:admin': true,
     },
     update: {
-      'role:admin': true
+      'role:admin': true,
     },
     delete: {
-      'role:admin': true
+      'role:admin': true,
     },
     addField: {},
-    protectedFields: {}
-  }
+    protectedFields: {},
+  },
 } as ClassInfo<Vehicle>;

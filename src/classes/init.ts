@@ -3,35 +3,25 @@ import Parse from 'parse/node';
 
 import { createClass, createRole, classes } from '.';
 
-interface ParseConfig {
-  appId: string;
-  masterKey: string;
-  serverURL: string;
-}
-
-function initParse ({ appId, serverURL, masterKey }: ParseConfig) {
+function initParse({ appId, serverURL, masterKey }: ParseConfig): void {
   Parse.initialize(appId, undefined, masterKey);
   Parse.serverURL = serverURL;
 }
 
-async function createRoles() {
+async function createRoles(): Promise<void> {
   await createRole('admin');
   await createRole('driver');
 }
 
-export default async function (config: ParseConfig) {
-
+export default async function(config: ParseConfig): Promise<void> {
   initParse(config);
 
   await createRoles();
 
-  // Config ParseServer to add Class Schemas.
-  const parseMount = `/${config.serverURL.split('/').slice(-1)[0]}`;
-  const serverConfig = new Config(config.appId, parseMount);
-  const serverSchema = await serverConfig.database.loadSchema();
+  const serverSchema = await Config.get(config.appId).database.loadSchema();
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const newClass of classes) {
     await createClass(serverSchema, newClass);
   }
-  console.log('Classes Executed!');
 }
