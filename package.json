@@ -32,6 +32,7 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
+    "expo-server-sdk": "^3.4.0",
     "express": "^4.17.1",
     "parse": "^2.11.0",
     "parse-dashboard": "^2.0.5",

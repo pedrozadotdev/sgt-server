@@ -1,5 +1,4 @@
 import { ClassPermission } from 'parse-server/lib/Config';
-import { S3Adapter } from 'parse-server';
 
 type SchemaFieldDefaultValue =
   | string

@@ -84,5 +84,35 @@ declare module 'parse-server/lib/Config' {
 declare module 'parse-server/lib/logger' {
   export default class Logger {
     static info(msg: string): void;
+    static error(msg: string): void;
+  }
+}
+
+declare module 'parse-server/lib/Adapters/Push/PushAdapter' {
+  import { Installation } from 'parse/node';
+
+  export interface PushAdapterResponse {
+    err: string | null;
+    device?: Installation;
+    transmitted: boolean;
+  }
+
+  interface PushAdapterData {
+    priority?: 'default' | 'normal' | 'high';
+    alert: string;
+    badge?: number | 'increment';
+    title?: string;
+    misc?: object;
+  }
+
+  export interface PushAdapterBody {
+    data: PushAdapterData;
+  }
+
+  export default abstract class PushAdapter {
+    send(
+      body: PushAdapterBody,
+      installations: Installation[],
+    ): Promise<PushAdapterResponse[]>;
   }
 }
